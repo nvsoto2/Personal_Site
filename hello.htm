@@ -2,9 +2,13 @@
 <html lang="en-US"> 
 <head> 
 <title> Nic Soto </title>
+
 <link rel="icon" type="image/x-icon" href="C:\Users\nicholassoto\Documents\personal\Apple in Blue.png">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style> 
+/* Header CSS */
 h1{
 	color: linen;
 	font-family: Arial;
@@ -20,6 +24,9 @@ header {
 	z-index: 10;
 	background-color: #1a1a1a;
 }
+
+/* Navbar CSS*/
+
 nav ul {
 	list-style-type: none;
 	font-family: Arial;
@@ -54,10 +61,13 @@ nav li a.active {
 	background-color: #555;
 	color: linen;
 }
+
+
 body {
 	background-color: #1a1a1a;
 	color: linen;
 }
+
 h2{
 	color: linen;
 	font-family: Arial;
@@ -65,33 +75,102 @@ h2{
 	<!--border: 5px solid linen;-->
 	padding: 20px;
 }
+
 p{
 	color: linen;
 	font-family: Arial;
 	font-size: 110%;
 }
-pre{
-	color: linen;
-	font-family: Arial;
-	font-size: 110%;
-}
+
 img{
 	width: 100%;
 }
+
+/* Footer css */
 footer{
-	<!-- DO SOMETHING HERE -->
+	/* DO some more stuff here prolly */
 	color: linen;
 	font-family: Arial;
 	font-size: 110%;
 	background-color: #1a1a1a;
 	border-top: 1px solid linen;
 }
+
+/* Slideshows */
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+	max-width: 500px;
+	position: relative;
+	margin: auto;
+}
+
+/* Hide Images */
+.mySlides, .show_2, .show_3, .show_4 {
+	display: none;
+}
+
+/*Next & Previous Buttons*/
+.prev, .next {
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	width: auto;
+	margin-top: -22px;
+	padding: 16px;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+}
+
+/*Position Next button to the right */
+.next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+/*On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+	background-color: rgba(0,0,0,0.8)
+}
+
+/* Caption text */
+.text {
+	color: #f2f2f2;
+	font-size: 15px;
+	padding: 8px 12px;
+	position: absolute;
+	bottom: 8px;
+	width: 100%;
+	text-align: center;
+}
+
+/* Dots */
+.dot, .dot_2, .dot_3, .dot_4 {
+	cursor: pointer;
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+	background-color:#717171;
+}
+
+
 </style>
 </head>
 
 
 <nav>
-<!-- <h2 style="text-align:center;"> Links! </h1> -->
 	<ul>
 		<li><a style="padding:0px; color:#ff5f05" href="#top">Home</a></li>
 		<li style="float:right"><a style="padding:35px;" href="resume.html">Resume</a></li>
@@ -116,18 +195,111 @@ footer{
 <p>
 	My first love was track and field. I fell in love with the aspect of having a specific measure of progress. A time does not lie. Conditions do not matter, what matters is if you beat a number on a clock. Practice is running against a clock, a competition is running to beat a number. My happy place became a hot humid empty track. I fell in love with the pain and suffering that came along with it. I worked so hard and reaped the fruits of my labor. I qualified for the state track and field meet my senior year of high school, even through injury. If you want to talk to me at all about anything track and field, please do! I am a huge nerd about this stuff and would love to do so. In college I kept running and had some of my proudest moments of my track and field career. My Freshman year I was a part of the Illinois Track and Field club record breaking and Club relays track meet record breaking 4x200m relay. Club track and field nationals in Richmond Virginia during my Junior year. There after one of the hardest years of my life I took 5th in the nation in the 100m dash, a race I had only run a handfull of times in my life. I also ran my lifetime personal best in the 4x400m relay and helped bring my team to a first place finish, which we had not done in my prior two years at nationals. I was elected president at the end of my sophomore year and I was the sprints coach for both my junior and senior year. I also coached some amazing athletes and made amazing connections that will last a lifetime, I miss all of my athletes and I wish them all the best, and hope one day they can be proud of their performances too. <br><br> *insert pictures of state qualifier, me and dunbar, state meet, club relay record, w kaleigh,  nationals on the 100m start line, w team after 100m, w mom, w rachel, 4x4 meet*
 </p>
+
+<!-- Slideshow Container For First Slideshow -->
+<div class="slideshow-container">
+
+	<div class="mySlides">
+		<img src="./images/grad_pic.jpg" style="width:100%">
+		<div class="text">Grad Pic</div>
+	</div>
+
+	<div class="mySlides">
+		<img src="./images/grad_w_fam.jpg" style="width:100%">
+		<div class="text">Grad Pic With Illinois Graduates</div>
+	</div>
+
+	<div class="mySlides">
+		<img src="./images/grad_w_gpa.jpg" style="width:100%">
+		<div class="text">Grad Pic With My Grandfather</div>
+	</div>
+	
+	<a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+	<a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+</div>
+
+<br>
+
+<!-- Dots! -->
+<div style="text-align:center">
+	<span class="dot" onclick="currentSlide(1, 0)"></span>
+	<span class="dot" onclick="currentSlide(2, 0)"></span>
+	<span class="dot" onclick="currentSlide(3, 0)"></span>
+</div>
+
 <h2>
 	The University of Illinois
 </h2>
 <p>
 	I was born and raised to be an Illini. My mother’s lullaby to me as a child was Hail to the Orange, one of the hallmark songs of the university of illinois. My whole family was Illini, my grandparents, mother, aunts and uncles all were Illini. I found myself at that university. I would never trade my time there for anything in the world. I was apart of the Track and Field club as seen above. I was a part of the Quant club as a quantitative researcher. I fell in love with the local music scene through my friends. I worked as a floor manager at the Armory indoor track. I also worked with the marketing department for the football games. Choosing Illinois was the best decision of my life.<br><br> *insert pictures of first day on campus w mom and sam, kid w illinois merch, Football w grandpa and mom, pictures of my time of college(big 10 tailgate), grad pics*
 </p>
+
+<!-- Slideshow Container for 2nd Slideshow -->
+<div class="slideshow-container">
+	<div class="show_2">
+		<img src="./images/grad_pic.jpg" style="width:100%">
+		<div class="text">Grad Pic</div>
+	</div>
+
+	<div class="show_2">
+		<img src="./images/grad_w_fam.jpg" style="width:100%">
+		<div class="text">Grad Pic With Illinois Graduates</div>
+	</div>
+
+	<div class="show_2">
+		<img src="./images/grad_w_gpa.jpg" style="width:100%">
+		<div class="text">Grad Pic With My Grandfather</div>
+	</div>
+	
+	<a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
+	<a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
+</div>
+
+<br>
+
+<div style="text-align:center">
+	<span class="dot_2" onclick="currentSlide(1, 1)"></span>
+	<span class="dot_2" onclick="currentSlide(2, 1)"></span>
+	<span class="dot_2" onclick="currentSlide(3, 1)"></span>
+</div>
+
+
 <h2>
 	Music
 </h2>
 <p>
 	I am a huge fan of music. It started with post-hardcore music and now has grown into music that I fell in love with from seeing it in a hot, humid, too-short basement in champaign. I love going to live shows and even began playing music myself. It is rare to find music that I don’t like. Having grown up with soul, 80’s pop, 80’s rock, and early 2000’s punk. In high school I listened to country, rap, and r&b. In college I found metal, post-hardcore, and emo. And post college I found midwest emo, the blues, and folk music.<br><br> *insert pictures of live shows*
 </p>
+
+<!-- Slideshow Container for 3rd Slideshow -->
+<div class="slideshow-container">
+	<div class="show_3">
+		<img src="./images/grad_pic.jpg" style="width:100%">
+		<div class="text">Grad Pic</div>
+	</div>
+
+	<div class="show_3">
+		<img src="./images/grad_w_fam.jpg" style="width:100%">
+		<div class="text">Grad Pic With Illinois Graduates</div>
+	</div>
+
+	<div class="show_3">
+		<img src="./images/grad_w_gpa.jpg" style="width:100%">
+		<div class="text">Grad Pic With My Grandfather</div>
+	</div>
+	
+	<a class="prev" onclick="plusSlides(-1, 2)">&#10094;</a>
+	<a class="next" onclick="plusSlides(1, 2)">&#10095;</a>
+</div>
+
+<br>
+
+<div style="text-align:center">
+	<span class="dot_3" onclick="currentSlide(1, 2)"></span>
+	<span class="dot_3" onclick="currentSlide(2, 2)"></span>
+	<span class="dot_3" onclick="currentSlide(3, 2)"></span>
+</div>
+
 <h2>
 	Learning
 </h2>
@@ -141,15 +313,50 @@ footer{
 	*insert slide show of random pics I like - food, golfing, renaissance fair, remy, etc*
 </p>
 
+<!-- Slideshow container for 4th slideshow -->
+<div class="slideshow-container">
+	<div class="show_4">
+		<img src="./images/grad_pic.jpg" style="width:100%">
+		<div class="text">Grad Pic</div>
+	</div>
+
+	<div class="show_4">
+		<img src="./images/grad_w_fam.jpg" style="width:100%">
+		<div class="text">Grad Pic With Illinois Graduates</div>
+	</div>
+
+	<div class="show_4">
+		<img src="./images/grad_w_gpa.jpg" style="width:100%">
+		<div class="text">Grad Pic With My Grandfather</div>
+	</div>
+	
+	<a class="prev" onclick="plusSlides(-1, 3)">&#10094;</a>
+	<a class="next" onclick="plusSlides(1, 3)">&#10095;</a>
+</div>
+
+<br>
+
+<div style="text-align:center">
+	<span class="dot_4" onclick="currentSlide(1, 3)"></span>
+	<span class="dot_4" onclick="currentSlide(2, 3)"></span>
+	<span class="dot_4" onclick="currentSlide(3, 3)"></span>
+</div>
+
+
+
 <p>
 	If you want more in depth knowledge about me, please see the Personal tab, it will have things like my music, my track and field career, my food, and a bunch of other things! If you want to see my resume please see the Resume tab, it will be much more in depth than a one page resume. It has my whole career on it. If you want to see some of my personal projects, please see the Projects tab. If you feel the need to contact me, please email me at the address below!
 </p>
+
+
+
+<script src="temp_script.js" defer></script>
 
 </body>
 
 <footer>
 	<p> 
-		Last Updated:2/3/26 Author: Nic Soto <br>
+		Last Updated:2/5/26 Author: Nic Soto <br>
 		All images on this page are owned by Nic Soto
 	</p>
 </footer>
