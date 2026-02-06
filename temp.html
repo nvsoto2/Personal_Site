@@ -69,16 +69,38 @@
 	background-color:#717171;
 }
 
+/*toggle button */
+#toggleButton {
+	background-color: #717171;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	transition: 0.3s;
+}
+
+#toggleButton:hover {
+	background-color: #333;
+}
+
 </style>
+
+
+<nav>
+	<ul>
+		<li><a style="padding:0px; color:#ff5f05" href="#" id="toggleButton" onclick="toggleAutoPlay()">Toggle</a></li>
+	</ul>
+</nav>
+
 
 <body>
 
 <!-- Pause button -->
-<div style="text-align:center; margin:20px;">
-	<button id="toggleButton" onclick="toggleAutoPlay()" style="padding: 10px 20px; cursor: pointer;">
-		Pause Slideshow
-	</button>
-</div>
+<!--<div style="text-align:center; margin:20px;">-->
+<!--	<button id="toggleButton" onclick="toggleAutoPlay()" style="padding: 10px 20px; cursor: pointer;">-->
+<!--		Pause Slideshow-->
+<!--	</button>-->
+<!--</div>-->
 
 <!-- Slideshow Container -->
 <div class="slideshow-container">

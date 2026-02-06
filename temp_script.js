@@ -3,7 +3,7 @@
 let slideIndex = [1,1,1,1];
 let slideId = ["mySlides", "show_2", "show_3", "show_4"]
 let dotId = ["dot", "dot_2", "dot_3", "dot_4"]
-let isPaused = false;
+let isPaused = true;
 showSlides(1,0);
 showSlides(1,1);
 showSlides(1,2);
