@@ -20,7 +20,7 @@ header {
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 100%;
+	width: 87.50%;
 	z-index: 10;
 	background-color: #1a1a1a;
 }
@@ -38,7 +38,8 @@ nav ul {
 	border-bottom: 1px solid linen;
 	position: fixed;
 	top: 0;
-	width: 100%;
+	width: 87.50%;
+	left: 6.25%;
 	z-index: 10;
 }
 nav li {
@@ -66,6 +67,9 @@ nav li a.active {
 body {
 	background-color: #1a1a1a;
 	color: linen;
+	width: 87.50%;
+	margin: 0 auto;
+	padding-top: 50px;
 }
 
 h2{
@@ -100,15 +104,32 @@ footer{
 * {box-sizing:border-box}
 
 /* Slideshow container */
-.slideshow-container {
+.slideshow-container { /* I might want to change the aspect ratio to 16:9 or 4:3 */
 	max-width: 500px;
+	width: 100%;
+	height: 500px;
 	position: relative;
+	margin: auto;
+	overflow: hidden;
+}
+
+.slideshow-container img {
+	max-height: 100%;
+	max-width: 100%;
+	width: auto;
+	height: auto;
+	object-fit: contain;
+	display: block;
 	margin: auto;
 }
 
 /* Hide Images */
 .mySlides, .show_2, .show_3, .show_4 {
 	display: none;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
 }
 
 /*Next & Previous Buttons*/
@@ -141,6 +162,10 @@ footer{
 /* Caption text */
 .text {
 	color: #f2f2f2;
+	text-shadow: -1px -1px 0 #000,
+    		1px -1px 0 #000,
+    		-1px 1px 0 #000,
+		1px 1px 0 #000;
 	font-size: 15px;
 	padding: 8px 12px;
 	position: absolute;
@@ -173,8 +198,8 @@ footer{
 <nav>
 	<ul>
 		<li><a style="padding:0px; color:#ff5f05" href="#top">Home</a></li>
-		<li style="float:right"><a style="padding:15px; href="#" id="toggleButton" onclick="toggleAutoPlay()">Play Slideshow</a></li>
-		<li style="float:right"><a  href="resume.html">Resume</a></li>
+		<li style="float:right"><a href="#" id="toggleButton" onclick="toggleAutoPlay()">Play Slideshow</a></li>
+		<li style="float:right"><a href="resume.html">Resume</a></li>
 		<li style="float:right"><a href="projects.html">Projects</a></li> 
 		<li style="float:right"><a href="personal.html">Personal</a></li>
 	</ul>
@@ -182,11 +207,6 @@ footer{
 
 
 <body>
-
-<br>
-<br>
-
-
 <p> 
 	Hello! Welcome to my website! <br> I have the vision for this site to be a way for me to have an online resume and to show some things that I am proud of. I hope there's a bunch of stuff on here at some point. Right now though - a whole lot of nothing! <br> <br> Hello, I’m Nic. <br>I am just a guy who was born and raised in the chicago suburbs. Here are a few things about myself: 
 </p>
@@ -201,82 +221,77 @@ footer{
 <div class="slideshow-container">
 
 	<div class="mySlides">
-		<img src="./images/track_01.jpg" style="width:100%">
+		<img src="./images/track_01.jpg">
 		<div class="text">Senior Year Sectionals</div>
 	</div>
 
 	<div class="mySlides">
-		<img src="./images/track_02.jpg" style="width:100%">
+		<img src="./images/track_02.jpg">
 		<div class="text">Senior Year Sectionals</div>
 	</div>
 
 	<div class="mySlides">
-		<img src="./images/track_03.jpg" style="width:100%">
+		<img src="./images/track_03.jpg">
 		<div class="text">2021 State Qualifier!</div>
 	</div>
 
 	<div class="mySlides">
-		<img src="./images/track_04.jpg" style="width:100%">
+		<img src="./images/track_04.jpg">
 		<div class="text">Club Relays 4x200m Record (2022)</div>
 	</div>
 
 	<div class="mySlides">
-		<img src="./images/track_05.jpg" style="width:100%">
+		<img src="./images/track_06.jpg">
 		<div class="text">2024 Nationals 100m Finalists</div>
 	</div>
 
 	<div class="mySlides">
-		<img src="./images/track_06.jpg" style="width:100%">
+		<img src="./images/track_07.jpg">
 		<div class="text">2024 Nationals 100m Final</div>
 	</div>
 
 	<div class="mySlides">
-		<img src="./images/track_07.jpg" style="width:100%">
+		<img src="./images/track_08.jpg">
 		<div class="text">2023-24 Illinois Track Club</div>
 	</div>
 
 	<div class="mySlides">
-		<img src="./images/track_08.jpg" style="width:100%">
+		<img src="./images/track_09.jpg">
 		<div class="text">2024 4x100m National Champions!</div>
 	</div>
 
 	<div class="mySlides">
-		<img src="./images/track_09.jpg" style="width:100%">
+		<img src="./images/track_10.jpg">
 		<div class="text">Mom flew out to Virginia!</div>
 	</div>
 
 	<div class="mySlides">
-		<img src="./images/track_10.jpg" style="width:100%">
+		<img src="./images/track_11.jpg">
 		<div class="text">2023-24 Illinois Track Club Executive Board</div>
 	</div>
 
 	<div class="mySlides">
-		<img src="./images/track_11.jpg" style="width:100%">
+		<img src="./images/track_12.jpg">
 		<div class="text">2023-24 Sprints Coaches</div>
 	</div>
 
 	<div class="mySlides">
-		<img src="./images/track_12.jpg" style="width:100%">
+		<img src="./images/track_13.jpg">
 		<div class="text">2024 Nationals 4x400m Champioins!</div>
 	</div>
 
 	<div class="mySlides">
-		<img src="./images/track_13.jpg" style="width:100%">
+		<img src="./images/track_14.jpg">
 		<div class="text">Coach Nic!</div>
 	</div>
 
 	<div class="mySlides">
-		<img src="./images/track_14.jpg" style="width:100%">
-		<div class="text">Grad Pic</div>
-	</div>
-
-	<div class="mySlides">
-		<img src="./images/track_15.jpg" style="width:100%">
+		<img src="./images/track_15.jpg">
 		<div class="text">2025 Club Relays 4x400m</div>
 	</div>
 
 	<div class="mySlides">
-		<img src="./images/track_16.jpg" style="width:100%">
+		<img src="./images/track_16.jpg">
 		<div class="text">2025 Graduating Male Sprinters</div>
 	</div>
 	
@@ -303,7 +318,6 @@ footer{
 	<span class="dot" onclick="currentSlide(13, 0)"></span>
 	<span class="dot" onclick="currentSlide(14, 0)"></span>
 	<span class="dot" onclick="currentSlide(15, 0)"></span>
-	<span class="dot" onclick="currentSlide(16, 0)"></span>
 </div>
 
 <h2>
@@ -316,107 +330,107 @@ footer{
 <!-- Slideshow Container for 2nd Slideshow -->
 <div class="slideshow-container">
 	<div class="show_2">
-		<img src="./images/ill_01.jpg" style="width:100%">
+		<img src="./images/ill_01.jpg">
 		<div class="text">First Day On Campus</div>
 	</div>
 
 	<div class="show_2">
-		<img src="./images/ill_02.jpg" style="width:100%">
+		<img src="./images/ill_02.jpg">
 		<div class="text">Football!</div>
 	</div>
 
 	<div class="show_2">
-		<img src="./images/ill_03.jpg" style="width:100%">
+		<img src="./images/ill_03.jpg">
 		<div class="text">Football!</div>
 	</div>
 
 	<div class="show_2">
-		<img src="./images/ill_04.jpg" style="width:100%">
+		<img src="./images/ill_04.jpg">
 		<div class="text">Big 10 Tailgate 2024</div>
 	</div>
 
 	<div class="show_2">
-		<img src="./images/ill_05.jpg" style="width:100%">
+		<img src="./images/ill_05.jpg">
 		<div class="text">Beat Michigan!</div>
 	</div>
 
 	<div class="show_2">
-		<img src="./images/ill_06.jpg" style="width:100%">
+		<img src="./images/ill_06.jpg">
 		<div class="text">Big 10 Cross Country Championships 2024</div>
 	</div>
 
 	<div class="show_2">
-		<img src="./images/ill_07.jpg" style="width:100%">
+		<img src="./images/ill_07.jpg">
 		<div class="text">Marketing Work</div>
 	</div>
 
 	<div class="show_2">
-		<img src="./images/ill_08.jpg" style="width:100%">
+		<img src="./images/ill_08.jpg">
 		<div class="text">Grad</div>
 	</div>
 
 	<div class="show_2">
-		<img src="./images/ill_09.jpg" style="width:100%">
+		<img src="./images/ill_09.jpg">
 		<div class="text">Grad</div>
 	</div>
 
 	<div class="show_2">
-		<img src="./images/ill_10.jpg" style="width:100%">
+		<img src="./images/ill_10.jpg">
 		<div class="text">Grad</div>
 	</div>
 
 	<div class="show_2">
-		<img src="./images/ill_11.jpg" style="width:100%">
+		<img src="./images/ill_11.jpg">
 		<div class="text">Grad</div>
 	</div>
 
 	<div class="show_2">
-		<img src="./images/ill_12.jpg" style="width:100%">
+		<img src="./images/ill_12.jpg">
 		<div class="text">Grad</div>
 	</div>
 
 	<div class="show_2">
-		<img src="./images/ill_13.jpg" style="width:100%">
+		<img src="./images/ill_13.jpg">
 		<div class="text">Grad</div>
 	</div>
 
 	<div class="show_2">
-		<img src="./images/ill_14.jpg" style="width:100%">
+		<img src="./images/ill_14.jpg">
 		<div class="text">Grad</div>
 	</div>
 
 	<div class="show_2">
-		<img src="./images/ill_15.jpg" style="width:100%">
+		<img src="./images/ill_15.jpg">
 		<div class="text">Grad</div>
 	</div>
 
 	<div class="show_2">
-		<img src="./images/ill_16.jpg" style="width:100%">
+		<img src="./images/ill_16.jpg">
 		<div class="text">Roommates!</div>
 	</div>
 
 	<div class="show_2">
-		<img src="./images/ill_17.jpg" style="width:100%">
+		<img src="./images/ill_17.jpg">
 		<div class="text">Josh Shea My Favorite Professor</div>
 	</div>
 
 	<div class="show_2">
-		<img src="./images/ill_18.jpeg" style="width:100%">
+		<img src="./images/ill_18.jpeg">
 		<div class="text">Class of '51 and '25</div>
 	</div>
 
 	<div class="show_2">
-		<img src="./images/ill_19.jpeg" style="width:100%">
+		<img src="./images/ill_19.jpeg">
 		<div class="text">3 Generations of Illini</div>
 	</div>
 
 	<div class="show_2">
-		<img src="./images/ill_20.jpeg" style="width:100%">
+		<img src="./images/ill_20.jpeg">
 		<div class="text">Family!</div>
 	</div>
 
 	<div class="show_2">
-		<img src="./images/ill_21.jpg" style="width:100%">
+		<img src="./images/ill_21.jpg">
 		<div class="text">Born and Bred Illini</div>
 	</div>
 
@@ -462,13 +476,13 @@ footer{
 <!-- Slideshow Container for 3rd Slideshow -->
 <div class="slideshow-container">
 	<div class="show_3">
-		<img src="./images/music_01.jpg" style="width:100%">
-		<div class="text">Cash Only!</div>
+		<img src="./images/music_01.jpg">
+		<div class="text">Cash Only! Sept 2024</div>
 	</div>
 
 	<div class="show_3">
-		<img src="./images/music_02.jpg" style="width:100%">
-		<div class="text">Empty Parking Lot</div>
+		<img src="./images/music_02.jpg">
+		<div class="text">Empty Parking Lot Feb 2026</div>
 	</div>
 	
 	<a class="prev" onclick="plusSlides(-1, 2)">&#10094;</a>
@@ -498,27 +512,27 @@ footer{
 <!-- Slideshow container for 4th slideshow -->
 <div class="slideshow-container">
 	<div class="show_4">
-		<img src="./images/personal_01.jpg" style="width:100%">
+		<img src="./images/personal_01.jpg">
 		<div class="text">Remy!</div>
 	</div>
 
 	<div class="show_4">
-		<img src="./images/personal_02.jpeg" style="width:100%">
+		<img src="./images/personal_02.jpeg">
 		<div class="text">Aidan Dec 2024</div>
 	</div>
 
 	<div class="show_4">
-		<img src="./images/personal_03.jpg" style="width:100%">
-		<div class="text">James Taylor Concert</div>
+		<img src="./images/personal_03.jpg">
+		<div class="text">James Taylor Concert Jun 2025</div>
 	</div>
 
 	<div class="show_4">
-		<img src="./images/personal_04.jpg" style="width:100%">
-		<div class="text">Renissance Faire</div>
+		<img src="./images/personal_04.jpg">
+		<div class="text">Renissance Faire Aug 2025</div>
 	</div>
 
 	<div class="show_4">
-		<img src="./images/personal_05.jpg" style="width:100%">
+		<img src="./images/personal_05.jpg">
 		<div class="text">Dakota & Janine Wedding Oct 2025</div>
 	</div>
 	
@@ -550,7 +564,7 @@ footer{
 
 <footer>
 	<p> 
-		Last Updated:2/5/26 Author: Nic Soto <br>
+		Last Updated:2/17/26 Author: Nic Soto <br>
 		All images on this page are owned by Nic Soto
 	</p>
 </footer>

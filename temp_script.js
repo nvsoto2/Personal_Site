@@ -67,7 +67,7 @@ function showSlides(n, no) {
 	for (i = 0; i < dots.length; i++) {
 		dots[i].className = dots[i].className.replace(" active", "");
 	}
-	x[slideIndex[no]-1].style.display = "block";
+	x[slideIndex[no]-1].style.display = "flex";
 	if (dots.length >0) {
 		dots[slideIndex[no]-1].className += " active";
 	}
