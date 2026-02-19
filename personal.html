@@ -104,6 +104,34 @@ footer{
 	background-color: #1a1a1a;
 	border-top: 1px solid linen;
 }
+
+#playlist-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	gap: 15 px;
+	padding: 15px;
+}
+
+.playlist-card {
+	background: #181818;
+	color: white;
+	padding: 10px;
+	border-radius: 8px;
+	transition: background 0.3s ease;
+}
+	
+.playlist-card:cover {
+	background: #282828;
+}
+	
+.playlist-card img {
+	width: 100%
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	border-radius: 4px;
+	box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
 </style>
 </head>
 
@@ -118,9 +146,21 @@ footer{
 
 <body>
 
-<br>
-<br>
+<section id="login-section">
+	<h3>My Playlists</h3>
+	<p>Authenticate with Spotify to view my playlists.</p>
+	<button id="login-button" onclick="authorize()">Login with Spotify</button>
+</section>
+
+<section id="playlist-section" style="display: none;">
+	<h3>My Playlists</h3>
+	<div id="playlist-container">
+	</div>
+/section>
+
 <h1> This page is a work in progress <h1>
+
+<script src="spotify.js" defer></script>
 
 </body>
 
