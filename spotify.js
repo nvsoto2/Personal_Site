@@ -148,5 +148,25 @@ function display_playlists(playlists) {
 function show_playlist_ui() {	
 	document.getElementById('login-section').style.display = 'none';
 	document.getElementById('playlist-section').style.display = 'block';
-
 }
+
+
+async function initApp() {
+	const url_params = new URLSearchParams(window.location.search);
+	const code = url_params.get('code');
+	const token = localStorage.getItem('access_token');
+	
+	if(code) {
+		console.log("dected code in URL. Swapping for token...");
+		await get_token(code);
+		window.history.replaceState({}, document.title, window.location.pathname);
+	} else if (token) {
+		console.log("Dectected exisiting token. Fetching playlists...");
+		fetch_playlists();
+	} else {
+		console.log("No session found. Waiting for user to click login.");
+		document.getElementById('login-section').style.display = 'block';
+	}
+}
+
+initApp();
