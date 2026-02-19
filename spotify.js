@@ -2,7 +2,7 @@ let max_length = 128;
 let min_length = 43;
 
 const client_id_ = 'e60dc0b268d94c358f419225629b4893';
-const redirect_url = "https://localhost:5500";
+const redirect_url = "https://nvsoto2.github.io/Personal_Site/personal.html";
 
 
 // generates a random string of a random length between the spotify tolerance
@@ -148,4 +148,5 @@ function display_playlists(playlists) {
 function show_playlist_ui() {	
 	document.getElementById('login-section').style.display = 'none';
 	document.getElementById('playlist-section').style.display = 'block';
+
 }
