@@ -65,6 +65,7 @@ async function authorize() {
 // send our ticket from spotify and the verifier and spotify will tell us if it matches
 // 
 async function get_token() {
+	log_debug("Start of get token");
 	const code_verifier_ = localStorage.getItem('code_verifier');
 	
 	const url = "https://accounts.spotify.com/api/token";
@@ -84,9 +85,10 @@ async function get_token() {
 	
 	const body = await fetch(url, payload);
 	const respone = await body.json();
-
+	
 	if (response.access_token) {
 		localStorage.setItem("access_token", response.access_token);
+		log_debug("got access_token");
 	}
 }
 
@@ -99,9 +101,11 @@ if(code){
 }
 
 async function fetch_playlists() {
+	log_debug("fetching playlists");
 	const token = localStorage.getItem('access_token');
 
 	if(!token) {
+		log_debug("no token");
 		console.error("No access token found. Please login.");
 		authorize();
 		return; // might need to run the above line again instead
@@ -116,16 +120,19 @@ async function fetch_playlists() {
 	});
 
 	if (result.status === 401) {
+		log_debug("error response 401");
 		console.warn("token expired. Re-authorizing...");
 		localStorage.removeItem('access_token');
 		authorize();
 		return;
 	}
+	log_debug("no error!");
 	const data = await result.json();
 	display_playlists(data.items);
 }
 
 function display_playlists(playlists) {
+	log_debug("display playlists");
 	const container = document.getElementById('playlist-container');
 	container.innerHTML = "";
 	
@@ -146,12 +153,14 @@ function display_playlists(playlists) {
 }
 
 function show_playlist_ui() {	
+	log_debug("show playlist");
 	document.getElementById('login-section').style.display = 'none';
 	document.getElementById('playlist-section').style.display = 'block';
 }
 
 
 async function initApp() {
+	log_debug("init app");
 	const url_params = new URLSearchParams(window.location.search);
 	const code = url_params.get('code');
 	const token = localStorage.getItem('access_token');
