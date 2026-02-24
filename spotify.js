@@ -131,6 +131,10 @@ function display_playlists(playlists) {
 	log_debug("display playlists");
 	const container = document.getElementById('playlist-container');
 	container.innerHTML = "";
+
+	if (!playlists || playlists.length===0) {
+		log_debug("NO PLAYLISTS FOUND");
+	}
 	
 	playlists.forEach(playlist => {
 		const playlist_element = document.createElement("div");
