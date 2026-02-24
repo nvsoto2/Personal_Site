@@ -82,9 +82,11 @@ async function get_token() {
 			code_verifier: code_verifier_,
 		}),
 	}
-	
+	log_debug("Payload made" + payload);
 	const body = await fetch(url, payload);
+	log_debug("response fetched" + body);
 	const response = await body.json();
+	log_debug("Have a response" + response);
 	
 	if (response.access_token) {
 		localStorage.setItem("access_token", response.access_token);
