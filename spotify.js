@@ -106,7 +106,7 @@ async function fetch_playlists() {
 		authorize();
 		return; // might need to run the above line again instead
 	}
-	url = "https://api.spotify.com/v1/users/Snick_Doto/playlists";
+	url = "https://api.spotify.com/v1/users/flame5363/playlists";
 	
 	const result = await fetch(url, {
 		method: "GET",
