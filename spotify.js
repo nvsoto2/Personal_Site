@@ -78,27 +78,21 @@ async function get_token() {
 			client_id: client_id_,
 			grant_type: 'authorization_code',
 			code: code,
-			redirect_uri: redirct_url,
+			redirect_uri: redirect_url,
 			code_verifier: code_verifier_,
 		}),
 	}
 	
 	const body = await fetch(url, payload);
-	const respone = await body.json();
+	const response = await body.json();
 	
 	if (response.access_token) {
 		localStorage.setItem("access_token", response.access_token);
 		log_debug("got access_token");
+		fetch_playlists();
 	}
 }
 
-
-const urlParams = new URLSearchParams(window.location.search);
-let code = urlParams.get('code');
-if(code){
-	get_token(code);
-	window.history.replaceState({}, document.title, window.location.pathname);
-}
 
 async function fetch_playlists() {
 	log_debug("fetching playlists");
@@ -179,3 +173,10 @@ async function initApp() {
 }
 
 initApp();
+
+//const urlParams = new URLSearchParams(window.location.search);
+//let code = urlParams.get('code');
+//if(code){
+//	get_token(code);
+//	window.history.replaceState({}, document.title, window.location.pathname);
+//}

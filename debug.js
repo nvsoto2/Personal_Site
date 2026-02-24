@@ -5,7 +5,7 @@ function log_debug(message) {
 	if(logg) {
 		const timestamp = new Date().toLocaleTimeString();
 		logg.innerHTML += `<p>[${timestamp}] ${message}</p>`;
-		logger.scrollTop = logger.scrollHeight;
+		logg.scrollTop = logg.scrollHeight;
 	}
 }
 
