@@ -64,7 +64,7 @@ async function authorize() {
 
 // send our ticket from spotify and the verifier and spotify will tell us if it matches
 // 
-async function get_token() {
+async function get_token(code) {
 	log_debug("Start of get token");
 	const code_verifier_ = localStorage.getItem('code_verifier');
 	
