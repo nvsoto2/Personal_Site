@@ -40,7 +40,7 @@ function base64encode(input) {
 // saves code_verifier into memory
 // puts the user on spotify's servers
 async function authorize() {
-	const scope = 'user-read-private user-read-email';
+	const scope = 'user-read-private user-read-email playlist-read-private playlist-read-collaborative';;
 	const auth_url = new URL("https://accounts.spotify.com/authorize");
 	
 	const code_verifier = gen_random_string();
