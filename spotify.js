@@ -95,21 +95,21 @@ async function get_token(code) {
 	}
 }
 
-async function get_my_id() {
-    const token = localStorage.getItem('access_token');
-    const response = await fetch("https://api.spotify.com/v1/me", {
-        headers: { 'Authorization': `Bearer ${token}` }
-    });
-    const data = await response.json();
-    
-    // This is the "Gold" you are looking for
-    log_debug("MY USER ID IS: " + data.id);
-    console.log("Full Profile Data:", data);
-}
+//async function get_my_id() {
+//    const token = localStorage.getItem('access_token');
+//    const response = await fetch("https://api.spotify.com/v1/me", {
+//        headers: { 'Authorization': `Bearer ${token}` }
+//    });
+//    const data = await response.json();
+//    
+//    // This is the "Gold" you are looking for
+//    log_debug("MY USER ID IS: " + data.id);
+//    console.log("Full Profile Data:", data);
+//}
 
 
 async function fetch_playlists() {
-	get_my_id();
+	// get_my_id();
 	log_debug("fetching playlists");
 	const token = localStorage.getItem('access_token');
 
