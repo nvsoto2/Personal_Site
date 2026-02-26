@@ -19,9 +19,9 @@ PERSONAL PAGE:<br>
     &emsp;&emsp;    - so officially publish it?<br>
     &emsp;&emsp;    - take off debug line<br>
     &emsp;&emsp;    - comment how and why and workflow in the code<br>
-    &emsp;- Add track career
-    &emsp;&emsp;    - Add a timeline of times hit for each event
-    &emsp;&emsp;    - could I use SQL for that? Maybe
+    &emsp;- Add track career<br>
+    &emsp;&emsp;    - Add a timeline of times hit for each event<br>
+    &emsp;&emsp;    - could I use SQL for that? Maybe<br>
 
 PROJECTS PAGE:<br>
   &emsp;Current works in progress:<br>
