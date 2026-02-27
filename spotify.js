@@ -5,9 +5,10 @@ const client_id_ = 'e60dc0b268d94c358f419225629b4893';
 const redirect_url = "https://nvsoto2.github.io/Personal_Site/personal.html";
 
 
-// generates a random string of a random length between the spotify tolerance
-// uses crypto to avoid math.random determinism
-// 
+/*
+	generates a random string of a random length between the spotify tolerance
+	uses crypto to avoid math.random determinism
+*/ 
 function gen_random_string() {
 	const possible_vals = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 	const length_buffer = new Uint8Array(1);
@@ -18,17 +19,21 @@ function gen_random_string() {
 	return values.reduce((acc, x) => acc + possible_vals[x % possible_vals.length], "");
 }
 
-// hash for the authorization request
-//makes string into bytes
-// hashes that data into the hash
+/*
+	hash for the authorization request
+	makes string into bytes
+	hashes that data into the hash
+*/
 async function sha256(string) {
 	const encoder = new TextEncoder();
 	const data = encoder.encode(string);
 	return await window.crypto.subtle.digest("SHA-256", data);
 }
 
-// makes it into base64 url
-// takes hash, turns it into bytes, then turns that into ascii
+/*
+	makes it into base64 url
+	takes hash, turns it into bytes, then turns that into ascii
+*/
 function base64encode(input) {
 	return btoa(String.fromCharCode(...new Uint8Array(input)))
 		.replace(/=/g, '') // remove padding
@@ -36,9 +41,10 @@ function base64encode(input) {
 		.replace(/\//g, '_'); // replace / with _
 }
 
-
-// saves code_verifier into memory
-// puts the user on spotify's servers
+/*
+ saves code_verifier into memory
+ puts the user on spotify's servers
+*/
 async function authorize() {
 	const scope = 'user-read-private user-read-email playlist-read-private playlist-read-collaborative';
 	const auth_url = new URL("https://accounts.spotify.com/authorize");
@@ -62,10 +68,11 @@ async function authorize() {
 	window.location.href = auth_url.toString();
 }
 
-// send our ticket from spotify and the verifier and spotify will tell us if it matches
-// 
+/*
+	send our ticket from spotify and the verifier and spotify will tell us if it matches
+*/
 async function get_token(code) {
-	log_debug("Start of get token");
+	// log_debug("Start of get token");
 	const code_verifier_ = localStorage.getItem('code_verifier');
 	
 	const url = "https://accounts.spotify.com/api/token";
@@ -82,39 +89,41 @@ async function get_token(code) {
 			code_verifier: code_verifier_,
 		}),
 	}
-	log_debug("Payload made" + payload);
+	// log_debug("Payload made" + payload);
 	const body = await fetch(url, payload);
-	log_debug("response fetched" + body);
+	// log_debug("response fetched" + body);
 	const response = await body.json();
-	log_debug("Have a response" + response);
+	// log_debug("Have a response" + response);
 	
 	if (response.access_token) {
 		localStorage.setItem("access_token", response.access_token);
-		log_debug("got access_token");
+		// log_debug("got access_token");
 		fetch_playlists();
 	}
 }
 
-//async function get_my_id() {
-//    const token = localStorage.getItem('access_token');
-//    const response = await fetch("https://api.spotify.com/v1/me", {
-//        headers: { 'Authorization': `Bearer ${token}` }
-//    });
-//    const data = await response.json();
-//    
-//    // This is the "Gold" you are looking for
-//    log_debug("MY USER ID IS: " + data.id);
-//    console.log("Full Profile Data:", data);
-//}
+/*
+async function get_my_id() {
+    const token = localStorage.getItem('access_token');
+    const response = await fetch("https://api.spotify.com/v1/me", {
+        headers: { 'Authorization': `Bearer ${token}` }
+    });
+    const data = await response.json();
+    log_debug("MY USER ID IS: " + data.id);
+    console.log("Full Profile Data:", data);
+}
+*/
 
-
+/*
+	goes through, calls api, gets all the playlists.
+*/
 async function fetch_playlists() {
 	// get_my_id();
-	log_debug("fetching playlists");
+	// log_debug("fetching playlists");
 	const token = localStorage.getItem('access_token');
 
 	if(!token) {
-		log_debug("no token");
+		// log_debug("no token");
 		console.error("No access token found. Please login.");
 		authorize();
 		return; // might need to run the above line again instead
@@ -127,28 +136,32 @@ async function fetch_playlists() {
 			'Authorization': `Bearer ${token}`
 		}
 	});	
-	log_debug("result.status" + result.status);
+	// log_debug("result.status" + result.status);
 	if (result.status === 401) {
-		log_debug("error response 401");
+		// log_debug("error response 401");
 		console.warn("token expired. Re-authorizing...");
 		localStorage.removeItem('access_token');
 		authorize();
 		return;
 	}
-	log_debug("no error!");
+	// log_debug("no error!");
 	const data = await result.json();
 	display_playlists(data.items);
 }
 
+/*
+	Displays all of the playlists one by one via a for each loop
+*/
 function display_playlists(playlists) {
-	log_debug("display playlists");
+	// log_debug("display playlists");
 	const container = document.getElementById('playlist-container');
 	container.innerHTML = "";
 
-	if (!playlists || playlists.length===0) {
-		log_debug("NO PLAYLISTS FOUND");
-	}
-	
+	/*
+		if (!playlists || playlists.length===0) {
+			log_debug("NO PLAYLISTS FOUND");
+		}
+	*/
 	playlists.forEach(playlist => {
 		const playlist_element = document.createElement("div");
 		playlist_element.className = 'playlist-card';
@@ -165,15 +178,23 @@ function display_playlists(playlists) {
 	show_playlist_ui();
 }
 
+/*
+	This just switches from the playlists not being shown, to being shown.
+*/
 function show_playlist_ui() {	
-	log_debug("show playlist");
+	//log_debug("show playlist");
 	document.getElementById('login-section').style.display = 'none';
 	document.getElementById('playlist-section').style.display = 'block';
 }
 
 
+/*
+	This is a function to start the whole process, ties all functions together.
+	Just going through and checking to see if we have a code/token and going from there
+*/
 async function initApp() {
-	log_debug("init app");
+	localStorage.clear();
+	//log_debug("init app");
 	const url_params = new URLSearchParams(window.location.search);
 	const code = url_params.get('code');
 	const token = localStorage.getItem('access_token');
