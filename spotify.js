@@ -193,7 +193,7 @@ function show_playlist_ui() {
 	Just going through and checking to see if we have a code/token and going from there
 */
 async function initApp() {
-	localStorage.clear();
+	//localStorage.clear();
 	//log_debug("init app");
 	const url_params = new URLSearchParams(window.location.search);
 	const code = url_params.get('code');
